@@ -9,6 +9,13 @@ density = 2000 # density of the grid
 x_min, x_max = -2, 1
 y_min, y_max = -1.5, 1.5
 
+x_min, x_max = -0.2738, -0.1923
+y_min, y_max = -0.05, 0.05
+
+x_min, x_max = -0.5, 0.5
+y_min, y_max = -0.25, 0.25
+
+
 # x, y are matrices containing the real and imaginary parts 
 # of all z values in the grid
 x, y = meshgrid(linspace(x_min, x_max, density),
@@ -31,7 +38,7 @@ for n in xrange(iterations):
     indices = (abs(z) <= 10)
  
     # update z
-    z[indices] = z[indices]**2 + c[indices]
+    z[indices] = z[indices]**3 - 2*z[indices] + c[indices]
  
     # we update the values in m
     m[indices] = n
